@@ -35,17 +35,17 @@ func MatrixMultiply(a [][]float64, b [][]float64) [][]float64 {
 }
 
 // func main() {
-  // a := [][]float64{
-  //   {1, 2, 3},
-  //   {4, 5, 6},
-  // }
-  //
-  // b := [][]float64{
-  //   {7, 8},
-  //   {9, 10},
-  //   {11, 12},
-  // }
-  //
-  // result := MatrixMultiply(a, b)
-  // fmt.Println("result: ", result)
+//   a := [][]float64{
+//     {1, 2, 3},
+//     {4, 5, 6},
+//   }
+//
+//   b := [][]float64{
+//     {7, 8},
+//     {9, 10},
+//     {11, 12},
+//   }
+//
+//   result := MatrixMultiply(a, b)
+//   fmt.Println("result: ", result)
 // }
