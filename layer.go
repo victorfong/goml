@@ -1,21 +1,22 @@
 package main
 
 import "math/rand"
+import "fmt"
 
-type Layer interface{
-  // Train()
-  Init(inputUnits int)
-  GetOutputUnits() int
-}
+// type Layer interface{
+//   Train([]float64) []float64
+//   Init(inputUnits int)
+//   GetOutputUnits() int
+// }
 
-type layer struct {
+type Layer struct {
   inputUnits int
   outputUnits int
   weights [][]float64
   activation Activation
 }
 
-func (l layer) Init(inputUnits int) {
+func (l *Layer) Init(inputUnits int) {
   l.inputUnits = inputUnits
 
   l.weights = make([][]float64, inputUnits)
@@ -26,15 +27,28 @@ func (l layer) Init(inputUnits int) {
       l.weights[i][j] = rand.Float64()
     }
   }
+
+  // fmt.Println("Init Weight: ", l.weights)
 }
 
-func NewLayer(unit int, activation Activation) Layer{
-  return &layer{
+func (l *Layer) Train(input []float64) []float64{
+  a := [][]float64{
+    input,
+  }
+  fmt.Println("Input: ", input)
+  output := MatrixMultiply(a, l.weights)
+  result := l.activation.Activate(output[0])
+
+  return result
+}
+
+func NewLayer(unit int, activation Activation) *Layer{
+  return &Layer{
     outputUnits: unit,
     activation: activation,
   }
 }
 
-func (l layer) GetOutputUnits() int {
+func (l *Layer) GetOutputUnits() int {
   return l.outputUnits
 }

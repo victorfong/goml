@@ -1,6 +1,6 @@
 package main
 
-// import "fmt"
+import "fmt"
 
 func matrixMultiply(a [][]float64, b [][]float64, i int, j int) float64{
   var result float64
@@ -30,6 +30,9 @@ func MatrixMultiply(a [][]float64, b [][]float64) [][]float64 {
       result[i][j] = item
     }
 	}
+
+  fmt.Println("Result Width:", resultWidth)
+  fmt.Println("Result Height:", resultHeight)
 
   return result
 }
