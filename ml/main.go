@@ -1,6 +1,6 @@
-package main
+package ml
 
-import "fmt"
+// import "fmt"
 
 func main() {
   trainImagesBytes,trainLabelsBytes, _, _ := LoadMNIST()

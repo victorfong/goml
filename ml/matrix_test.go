@@ -1,11 +1,9 @@
-package main_test
+package ml_test
 
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-
-  "fmt"
-  . "main"
+  . "github.com/victorfong/goml/ml"
 )
 
 var _ = Describe("Matrix Operations", func() {
@@ -37,8 +35,6 @@ var _ = Describe("Matrix Operations", func() {
           }
 
           Expect(result).To(Equal(expectedResult))
-
-          fmt.Println("result: ", result)
 			})
 		})
 	})
