@@ -13,6 +13,26 @@ var _ = Describe("Loss Operations", func() {
 	})
 
 	Describe("Loss functions", func() {
+		Context("When using Cross Entropy loss function", func() {
+
+			It("should calculate correctly", func() {
+          expected := []float64{
+            1.0, 0.0, 0.0,
+          }
+
+          actual := []float64{
+            0.2698, 0.3223, 0.4078,
+          }
+
+          crossEntropy := CrossEntropy{}
+          result := crossEntropy.Loss(expected, actual)
+
+          expectedResult := 1.3100743352084816
+
+          Expect(result).To(Equal(expectedResult))
+			})
+		})
+
 		Context("When using Square Error loss function", func() {
 
 			It("should calculate correctly", func() {

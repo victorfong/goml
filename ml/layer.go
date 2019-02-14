@@ -78,9 +78,15 @@ func (l *Layer) Forward(input []float64) []float64{
   a := [][]float64{
     input,
   }
-  fmt.Println("Input: ", input)
-  output := MatrixMultiply(a, l.weights)
-  result := l.activation.Activate(output[0])
+
+  product := MatrixMultiply(a, l.weights)
+
+  row := product[0]
+  for i:=0; i<len(row); i++{
+    row[i] += 1.0
+  }
+  // fmt.Println("Before Activation:", row)
+  result := l.activation.Activate(row)
 
   return result
 }

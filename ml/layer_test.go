@@ -8,6 +8,76 @@ import (
 
 var _ = Describe("Layer Operations", func() {
 	Describe("Layer", func() {
+		Context("When following 3 by 3 example", func() {
+			It("should calculate first layer correctly", func(){
+				layer := NewLayer(3, ReLU{})
+				layer.Init(3)
+				layer.SetWeights([][]float64{
+					{0.1, 0.2, 0.3},
+					{0.3, 0.2, 0.7},
+					{0.4, 0.3, 0.9},
+				})
+
+				input := []float64{
+					0.1, 0.2, 0.7,
+				}
+
+				result := layer.Forward(input)
+
+				expectedResult := []float64{
+          1.35, 1.27, 1.8,
+        }
+
+        Expect(result).To(Equal(expectedResult))
+			})
+
+			It("should calculate second layer correctly", func(){
+				layer := NewLayer(3, Sigmoid{})
+				layer.Init(3)
+				layer.SetWeights([][]float64{
+					{0.2, 0.3, 0.5},
+					{0.3, 0.5, 0.7},
+					{0.6, 0.4, 0.8},
+				})
+
+				input := []float64{
+					1.35, 1.27, 1.8,
+				}
+
+				result := layer.Forward(input)
+
+				expectedResult := []float64{
+          0.9388312894865416, 0.9404756340234984, 0.9820843048123673,
+        }
+
+        Expect(result).To(Equal(expectedResult))
+			})
+
+			It("should calculate third layer correctly", func(){
+				layer := NewLayer(3, Softmax{})
+				layer.Init(3)
+				layer.SetWeights([][]float64{
+					{0.1, 0.4, 0.8},
+					{0.3, 0.7, 0.2},
+					{0.5, 0.2, 0.9},
+				})
+
+				input := []float64{
+					0.938, 0.94, 0.98,
+				}
+
+				result := layer.Forward(input)
+
+				expectedResult := []float64{
+          0.19857651019773828, 0.28559492698949385, 0.5158285628127679,
+        }
+
+        Expect(result).To(Equal(expectedResult))
+			})
+
+		})
+
+
 		Context("When doing back-prop", func() {
 			var (
 				layer 				*Layer

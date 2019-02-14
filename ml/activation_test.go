@@ -13,6 +13,25 @@ var _ = Describe("Activation Operations", func() {
 	})
 
 	Describe("Activation", func() {
+		Context("When using Softmax activation function", func() {
+
+			It("should activate correctly", func() {
+          a := []float64{
+            1.8658, 2.2292, 2.8204,
+          }
+
+          softmax := Softmax{}
+          result := softmax.Activate(a)
+
+          expectedResult := []float64{
+            0.19857651019773828, 0.28559492698949396, 0.5158285628127679,
+          }
+
+          Expect(result).To(Equal(expectedResult))
+			})
+		})
+
+
 		Context("When using Sigmoid activation function", func() {
 
 			It("should activate correctly", func() {
@@ -25,6 +44,21 @@ var _ = Describe("Activation Operations", func() {
 
           expectedResult := []float64{
             0.5932699921071872, 0.596884378259767,
+          }
+
+          Expect(result).To(Equal(expectedResult))
+			})
+
+			It("should activate 1 by 3 matrix correctly", func() {
+          a := []float64{
+            2.73, 2.76, 4.001,
+          }
+
+          sigmoid := Sigmoid{}
+          result := sigmoid.Activate(a)
+
+          expectedResult := []float64{
+            0.9387738371800919, 0.9404756340234984, 0.9820314442330851,
           }
 
           Expect(result).To(Equal(expectedResult))

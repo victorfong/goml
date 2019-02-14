@@ -1,7 +1,6 @@
 package ml
 
 import "math"
-import "fmt"
 
 type Activation interface{
   Activate([]float64) []float64
@@ -56,17 +55,15 @@ func (r ReLU) DeActivate(input []float64) []float64{
 type Softmax struct{}
 
 func (s Softmax) Activate(input []float64) []float64{
-  fmt.Println("Softmax Input: ", input)
+
   output := make([]float64, len(input))
   sum := 0.0
 
   for i:=0; i<len(input); i++ {
-    normalized := input[i] * 0.000001
+    normalized := input[i] * 1.0
     output[i] = math.Exp(normalized)
     sum += output[i]
   }
-
-  fmt.Println("Sum:",sum)
 
   for i:=0; i<len(input); i++ {
     output[i] /= sum
@@ -98,6 +95,5 @@ func (s Softmax) DeActivate(input []float64) []float64{
     output[i] = top / bottom
   }
 
-  fmt.Println("Softmax DeActivate:", output)
   return output
 }
