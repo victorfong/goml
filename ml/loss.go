@@ -27,6 +27,10 @@ func (s SquareError) Dloss(expected []float64, input []float64) []float64{
 
   output := make([]float64, n)
 
+  for i:=0; i<n; i++ {
+    output[i] = input[i] - expected[i]
+  }
+
   return output
 }
 

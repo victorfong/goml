@@ -33,5 +33,27 @@ var _ = Describe("Matrix Operations", func() {
 			})
 		})
 
+    Context("When using derivative of Square Error loss function", func() {
+
+			It("should calculate correctly", func() {
+          expected := []float64{
+            0.01, 0.99,
+          }
+
+          actual := []float64{
+            0.75136507, 0.772928465,
+          }
+
+          squareError := SquareError{}
+          result := squareError.Dloss(expected, actual)
+
+          expectedResult := []float64{
+            0.74136507, -0.21707153499999998,
+          }
+
+          Expect(result).To(Equal(expectedResult))
+			})
+		})
+
 	})
 })
