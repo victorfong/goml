@@ -55,7 +55,7 @@ func (m *Model) Train(data [][]float64, labels [][]float64){
 
     // Forward
     for j:=0; j<len(m.layers); j++ {
-      trainData = m.layers[j].Train(trainData)
+      trainData = m.layers[j].Forward(trainData)
     }
 
     loss := m.loss.Loss(labels[i], trainData)

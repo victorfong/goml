@@ -6,7 +6,7 @@ import (
   . "github.com/victorfong/goml/ml"
 )
 
-var _ = Describe("Matrix Operations", func() {
+var _ = Describe("Activation Operations", func() {
 
 	BeforeEach(func() {
 		// do nothing yet
