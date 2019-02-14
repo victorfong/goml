@@ -11,6 +11,7 @@ type Model struct {
   inputUnits int
   initialized bool
   layers []*Layer
+  loss Loss
 }
 
 func NewModel(inputUnits int) *Model{
@@ -31,6 +32,10 @@ func (m *Model) init() {
   m.initialized = true
 }
 
+func (m *Model) SetLoss(loss Loss) {
+  m.loss = loss
+}
+
 func (m *Model) AddLayer(layer *Layer) {
   fmt.Println("Before Total Layers: ", len(m.layers))
   m.layers = append(m.layers, layer)
@@ -42,14 +47,28 @@ func (m *Model) Train(data [][]float64, labels [][]float64){
     m.init()
   }
 
+  var trainData []float64
+
   for i:=0; i<len(data); i++ {
     // fmt.Println("Training Iteration #", i, " of ", len(data), " through ", len(m.layers), " layers")
-    trainData := data[i]
+    trainData = data[i]
 
+    // Forward
     for j:=0; j<len(m.layers); j++ {
       trainData = m.layers[j].Train(trainData)
     }
 
+    loss := m.loss.Loss(labels[i], trainData)
     fmt.Println("Output: ", trainData)
+    fmt.Println("Loss:", loss)
+
+    // Back
+    // de := m.loss.Dloss(labes[i], trainData)
+    // for j:=len(m.layers)-1; j>=0; j-- {
+    //   m.layers[j].BackProp(de)
+    // }
   }
+
+
+
 }

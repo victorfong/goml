@@ -2,6 +2,7 @@ package main
 
 import "math/rand"
 import "fmt"
+import "time"
 
 // type Layer interface{
 //   Train([]float64) []float64
@@ -20,11 +21,13 @@ func (l *Layer) Init(inputUnits int) {
   l.inputUnits = inputUnits
 
   l.weights = make([][]float64, inputUnits)
+  s1 := rand.NewSource(time.Now().UnixNano())
+  r1 := rand.New(s1)
 
   for i:=0; i<inputUnits; i++ {
     l.weights[i] = make([]float64, l.outputUnits)
     for j:=0; j<l.outputUnits; j++ {
-      l.weights[i][j] = rand.Float64()
+      l.weights[i][j] = r1.Float64()
     }
   }
 
