@@ -21,7 +21,14 @@ func (s Sigmoid) Activate(input []float64) []float64{
 }
 
 func (s Sigmoid) DeActivate(input []float64) []float64{
-  output := make([]float64, len(input))
+
+  n := len(input)
+
+  output := make([]float64, n)
+
+  for i:=0; i<n; i++ {
+    output[i] = input[i] * (1 - input[i])
+  }
 
   return output
 }

@@ -31,5 +31,23 @@ var _ = Describe("Matrix Operations", func() {
 			})
 		})
 
+    Context("When using derivative of Sigmoid activation function", func() {
+
+			It("should calculate correctly", func() {
+          a := []float64{
+            0.75136507, 0.772928465,
+          }
+
+          sigmoid := Sigmoid{}
+          result := sigmoid.DeActivate(a)
+
+          expectedResult := []float64{
+            0.18681560158389512, 0.17551005299274378,
+          }
+
+          Expect(result).To(Equal(expectedResult))
+			})
+		})
+
 	})
 })
