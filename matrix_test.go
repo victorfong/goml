@@ -3,6 +3,9 @@ package main_test
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+
+  "fmt"
+  . "main"
 )
 
 var _ = Describe("Matrix Operations", func() {
@@ -15,7 +18,27 @@ var _ = Describe("Matrix Operations", func() {
 		Context("when 2 matrices multiplies", func() {
 
 			It("should return product", func() {
-				Expect(true).To(BeTrue())
+          a := [][]float64{
+            {1, 2, 3},
+            {4, 5, 6},
+          }
+
+          b := [][]float64{
+            {7, 8},
+            {9, 10},
+            {11, 12},
+          }
+
+          result := MatrixMultiply(a, b)
+
+          expectedResult := [][]float64{
+            {58, 64},
+            {139, 154},
+          }
+
+          Expect(result).To(Equal(expectedResult))
+
+          fmt.Println("result: ", result)
 			})
 		})
 	})
