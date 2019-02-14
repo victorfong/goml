@@ -1,6 +1,6 @@
 package ml
 
-import "fmt"
+// import "fmt"
 
 func matrixMultiply(a [][]float64, b [][]float64, i int, j int) float64{
   var result float64
@@ -31,24 +31,5 @@ func MatrixMultiply(a [][]float64, b [][]float64) [][]float64 {
     }
 	}
 
-  fmt.Println("Result Width:", resultWidth)
-  fmt.Println("Result Height:", resultHeight)
-
   return result
 }
-
-// func main() {
-//   a := [][]float64{
-//     {1, 2, 3},
-//     {4, 5, 6},
-//   }
-//
-//   b := [][]float64{
-//     {7, 8},
-//     {9, 10},
-//     {11, 12},
-//   }
-//
-//   result := MatrixMultiply(a, b)
-//   fmt.Println("result: ", result)
-// }

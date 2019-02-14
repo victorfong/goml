@@ -8,6 +8,24 @@ type Activation interface{
   DeActivate([]float64) []float64
 }
 
+type Sigmoid struct{}
+
+func (s Sigmoid) Activate(input []float64) []float64{
+  output := make([]float64, len(input))
+
+  for i:=0; i<len(input); i++ {
+    output[i] = 1.0 / (1.0 + math.Exp(-1.0 * input[i]))
+  }
+
+  return output
+}
+
+func (s Sigmoid) DeActivate(input []float64) []float64{
+  output := make([]float64, len(input))
+
+  return output
+}
+
 type ReLU struct {}
 
 func (r ReLU) Activate(input []float64) []float64{

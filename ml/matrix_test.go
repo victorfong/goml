@@ -13,9 +13,9 @@ var _ = Describe("Matrix Operations", func() {
 	})
 
 	Describe("Multiplication", func() {
-		Context("when 2 matrices multiplies", func() {
+		Context("when 2 by 3 and 3 by 2 matrices multiplies", func() {
 
-			It("should return product", func() {
+			It("should return 2 by 2 product", func() {
           a := [][]float64{
             {1, 2, 3},
             {4, 5, 6},
@@ -32,6 +32,29 @@ var _ = Describe("Matrix Operations", func() {
           expectedResult := [][]float64{
             {58, 64},
             {139, 154},
+          }
+
+          Expect(result).To(Equal(expectedResult))
+			})
+		})
+
+		Context("when 1 by 3 and 2 by 3 matrices multiplies", func() {
+
+			It("should return 1 by 2 product", func() {
+          a := [][]float64{
+            {0.05, .1, 1},
+          }
+
+          b := [][]float64{
+            {.15, .25},
+            {.2, .3},
+						{.35, .35},
+          }
+
+          result := MatrixMultiply(a, b)
+
+          expectedResult := [][]float64{
+            {0.3775, 0.39249999999999996},
           }
 
           Expect(result).To(Equal(expectedResult))
