@@ -4,3 +4,5 @@ import:
   version: ~1.7.0
 - package: github.com/onsi/gomega
   version: ~1.4.3
+- package: github.com/op/go-logging
+  version: ~1.0.0

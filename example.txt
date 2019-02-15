@@ -1,0 +1,62 @@
+I
+Input = [0.1, 0.2, 0.7]
+
+H1
+Wij = ReLU
+[0.1, 0.2, 0.3]
+[0.3, 0.2, 0.7]
+[0.4, 0.3, 0.9]
+
+H2
+Wjk = Sigmoid
+[0.2, 0.3, 0.5]
+[0.3, 0.5, 0.7]
+[0.6, 0.4, 0.8]
+
+O1
+Wkl = Softmax
+[0.1, 0.4, 0.8]
+[0.3, 0.7, 0.2]
+[0.5, 0.2, 0.9]
+
+Labels = [1.0, 0.0, 0.0]
+
+H1 In       = [1.35, 1.27, 1.8]
+H1 Out      = [1.35, 1.27, 1.8]
+H2 In       = [2.73, 2.76, 4.001]
+H2 Out      = [0.938, 0.94, 0.98]
+O1 In       = [1.8658, 2.2292, 2.8204]
+O1 Out      = [0.2698, 0.3223, 0.4078]
+O1 Out'     = [0.19858, 0.28559, 0.51583]
+
+Cross-Entropy = 0.985
+
+BP of O1
+derivative of Error
+Input: O1 Out
+dE/dOO = [-3.70644, -1.4755, -1.6886]
+
+derivative of Activation (Softmax)
+Input: O1 In
+dOO/dOI = [0.15911, 0.2040, 0.3685]
+
+Input from H2
+Input: H2 Out
+dOI/dWkl = H2 Out
+
+dWkl = dE/dOO * dOO/dOI * dOI/dWkl
+
+W'kl = Wkl - (lr * dWkl)
+
+BP of H2
+derivative of Activation (Sigmoid)
+Input: H2 In
+dH2O/dH2I = [0.058156, 0.0564, 0.0196]
+
+Input from H1
+Input: H1 Out
+dh2I/dWjk = [1.35, 1.27, 1.8]
+
+dE/dH2O1 = dE1/dh2O1 + dE2/dh2O1 + dE3/dH2O1
+
+dW = dE/dH2O * dH2O/dH2I * dh2I/dWjk

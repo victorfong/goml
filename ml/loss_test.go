@@ -31,6 +31,25 @@ var _ = Describe("Loss Operations", func() {
 
           Expect(result).To(Equal(expectedResult))
 			})
+
+			It("should calculate derivative of loss correctly", func() {
+          expected := []float64{
+            1.0, 0.0, 0.0,
+          }
+
+          actual := []float64{
+            0.2698, 0.3223, 0.4078,
+          }
+
+          crossEntropy := CrossEntropy{}
+          result := crossEntropy.Dloss(expected, actual)
+
+					expectedResult := []float64{
+            -3.7064492216456637, -1.4755791648221928, -1.6886187098953054,
+          }
+
+          Expect(result).To(Equal(expectedResult))
+			})
 		})
 
 		Context("When using Square Error loss function", func() {

@@ -89,9 +89,10 @@ func (s Softmax) DeActivate(input []float64) []float64{
     top := 0.0
     for j:=0;j<n; j++ {
       if i != j {
-        top += e[i]
+        top += e[j]
       }
     }
+    top = top * e[i]
     output[i] = top / bottom
   }
 

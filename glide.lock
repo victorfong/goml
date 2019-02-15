@@ -1,8 +1,83 @@
-hash: 01bdfa1a6b5784cb8167a9c81b5008ce22e84a397f01f928f4d09f713a7d0996
-updated: 2019-02-13T19:59:28.738176-05:00
+hash: 3bb8d2df4cefe3743632ea214703febb7edfb076260b7677079423522f15757f
+updated: 2019-02-15T08:42:04.370866-05:00
 imports:
 - name: github.com/onsi/ginkgo
   version: 2e1be8f7d90e9d3e3e58b0ce470f2f14d075406f
+  subpackages:
+  - config
+  - internal/codelocation
+  - internal/containernode
+  - internal/failer
+  - internal/leafnodes
+  - internal/remote
+  - internal/spec
+  - internal/spec_iterator
+  - internal/specrunner
+  - internal/suite
+  - internal/testingtproxy
+  - internal/writer
+  - reporters
+  - reporters/stenographer
+  - reporters/stenographer/support/go-colorable
+  - reporters/stenographer/support/go-isatty
+  - types
 - name: github.com/onsi/gomega
   version: 65fb64232476ad9046e57c26cd0bff3d3a8dc6cd
-testImports: []
+  subpackages:
+  - format
+  - internal/assertion
+  - internal/asyncassertion
+  - internal/oraclematcher
+  - internal/testingtsupport
+  - matchers
+  - matchers/support/goraph/bipartitegraph
+  - matchers/support/goraph/edge
+  - matchers/support/goraph/node
+  - matchers/support/goraph/util
+  - types
+- name: github.com/op/go-logging
+  version: b2cb9fa56473e98db8caba80237377e83fe44db5
+testImports:
+- name: github.com/hpcloud/tail
+  version: a1dbeea552b7c8df4b542c66073e393de198a800
+  subpackages:
+  - ratelimiter
+  - util
+  - watch
+  - winfile
+- name: golang.org/x/net
+  version: 3a22650c66bd7f4fb6d1e8072ffd7b75c8a27898
+  subpackages:
+  - html
+  - html/atom
+  - html/charset
+- name: golang.org/x/sys
+  version: e77772198cdc3dbfcf7f2de96630204df9fd3a0b
+  subpackages:
+  - unix
+- name: golang.org/x/text
+  version: 6c92c7dc7f53607809182301b96e4cc1975143f1
+  subpackages:
+  - encoding
+  - encoding/charmap
+  - encoding/htmlindex
+  - encoding/internal
+  - encoding/internal/identifier
+  - encoding/japanese
+  - encoding/korean
+  - encoding/simplifiedchinese
+  - encoding/traditionalchinese
+  - encoding/unicode
+  - internal/language
+  - internal/language/compact
+  - internal/tag
+  - internal/utf8internal
+  - language
+  - runes
+  - transform
+- name: gopkg.in/fsnotify/fsnotify.v1
+  version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
+- name: gopkg.in/tomb.v1
+  version: c131134a1947e9afd9cecfe11f4c6dff0732ae58
+- name: gopkg.in/yaml.v2
+  version: 51d6538a90f86fe93ac480b35f37b2be17fef232
