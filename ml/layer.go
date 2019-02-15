@@ -52,7 +52,7 @@ func (l *Layer) UpdateWeights(input[] float64, output []float64, expected []floa
       fmt.Println("Original Weight: ", l.weights[i][j])
       fmt.Println("Learn Rate:", LEARN_RATE)
       fmt.Println("Delta:", delta[j])
-      l.weights[i][j] = l.weights[i][j] - LEARN_RATE * delta[i]
+      l.weights[i][j] = l.weights[i][j] - LEARN_RATE * delta[j]
       fmt.Println("New Weight:", l.weights[i][j])
     }
   }

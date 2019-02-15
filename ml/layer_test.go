@@ -121,19 +121,19 @@ var _ = Describe("Layer Operations", func() {
         Expect(delta).To(Equal(expectedDelta))
 			})
 
-			// It("should update weights correctly", func() {
-			//
-      //   layer.UpdateWeights(input, output, expected, lossFunction)
-			//
-      //   expectedWeights := [][]float64{
-      //     {0.35891647974257074, 0.5113701211361948},
-			// 		{0.4089164797425707, 0.5613701211361949},
-      //   }
-			//
-			// 	weights := layer.GetWeights()
-			//
-      //   Expect(weights).To(Equal(expectedWeights))
-			// })
+			It("should update weights correctly", func() {
+
+        layer.UpdateWeights(input, output, expected, lossFunction)
+
+        expectedWeights := [][]float64{
+          {0.35891647974257074, 0.5113701211361948},
+					{0.4089164797425707, 0.5613701211361949},
+        }
+
+				weights := layer.GetWeights()
+
+        Expect(weights).To(Equal(expectedWeights))
+			})
 		})
 
 
